@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>JS Bin</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .d1{
+            border: 2px solid #ff7580;
+            display: flex;
+            flex-direction: row;
+            width: 100vw;
+            height: 100px;
+            transition: width 0.5s ease-in;
+        }
+        .el1{
+            width: 33.3%;
+            height: 100%;
+            background: #1cff9e;
+        }
+        .el2{
+            width: 33.3%;
+            height: 100%;
+            background: #ff7580;
+        }
+        .el3{
+            width: 33.3%;
+            height: 100%;
+            background: #619eff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="d1 active">
+    <div class="el el1"></div>
+    <div class="el el2"></div>
+    <div class="el el3"></div>
+</div>
+
+<script type="text/javascript">
+    (function () {
+        let hh = document.documentElement.clientHeight;
+        let ww = document.documentElement.clientWidth;
+        let state = false;
+        let element = document.querySelector('.d1');
+        element.onclick = (e) =>{
+            if(state){
+                element.style = `height: '100px'; width: ${ww}px; margin-top: 0;`;
+                state = false;
+            } else {
+                element.style = `height: ${hh}px; width: ${3 * ww}px; margin-top: 0;`;
+                state = true;
+            }
+        };
+    })();
+</script>
+
+</body>
+</html>
